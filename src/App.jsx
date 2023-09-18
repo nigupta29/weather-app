@@ -1,5 +1,7 @@
+import { Fragment } from 'react'
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">Weather App</h1>
+  return <Fragment>{/* <DisplayCard /> */}</Fragment>
 }
 
 export default App
