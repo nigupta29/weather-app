@@ -2,7 +2,10 @@
 function WeatherCard({ weatherData }) {
   if (weatherData.cod !== 200)
     return (
-      <div className="capitalize">{weatherData?.message ?? 'no result'}</div>
+      <div className="capitalize">
+        {weatherData?.message ??
+          'Never be caught off guard by the weather again.'}
+      </div>
     )
 
   const { name, weather, main, wind, sys } = weatherData

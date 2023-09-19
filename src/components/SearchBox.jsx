@@ -22,6 +22,12 @@ function SearchBox({ setWeatherData }) {
     setWeatherData(data)
   }
 
+  function clearResults() {
+    setCity('')
+    setWeatherData({})
+    document.title = 'Weather Today'
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex items-center border-b-2 text-lg pb-2">
@@ -32,9 +38,7 @@ function SearchBox({ setWeatherData }) {
           name="city"
           value={city}
           placeholder="Enter your location..."
-          onChange={(event) => {
-            setCity(() => event.target.value)
-          }}
+          onChange={(event) => setCity(event.target.value)}
         />
 
         <button
@@ -42,10 +46,7 @@ function SearchBox({ setWeatherData }) {
             city === '' ? 'hidden' : ''
           }`}
           type="button"
-          onClick={() => {
-            setCity('')
-            document.title = 'Weather Today'
-          }}
+          onClick={clearResults}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
