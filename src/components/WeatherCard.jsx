@@ -1,5 +1,10 @@
 /* eslint-disable react/prop-types */
 function WeatherCard({ weatherData }) {
+  if (weatherData.cod !== 200)
+    return (
+      <div className="capitalize">{weatherData?.message ?? 'no result'}</div>
+    )
+
   const { name, weather, main, wind, sys } = weatherData
   const { temp, feels_like: feelsLike, humidity } = main
   const { speed: windSpeed } = wind
@@ -7,7 +12,7 @@ function WeatherCard({ weatherData }) {
   const { description } = weather[0]
 
   return (
-    <main className="max-w-xl m-5 mx-auto flex flex-col border-2 rounded-3xl p-16 items-center gap-10">
+    <main className="flex flex-col border-2 rounded-3xl p-16 items-center gap-10">
       <h2 className="text-3xl">{name}</h2>
       <div className="flex flex-col items-center gap-5">
         <h1 className="text-6xl tracking-tighter font-bold">

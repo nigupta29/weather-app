@@ -1,11 +1,22 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 
-function SearchBox() {
+function SearchBox({ setWeatherData }) {
   const [city, setCity] = useState('')
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
-    alert(city)
+
+    if (city === '') return
+
+    const url = new URL('https://api.openweathermap.org/data/2.5/weather')
+    url.searchParams.set('units', 'metric')
+    url.searchParams.set('appId', import.meta.env.VITE_API_KEY)
+    url.searchParams.set('q', city)
+
+    const response = await fetch(url)
+    const data = await response.json()
+    setWeatherData(data)
   }
 
   return (
