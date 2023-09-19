@@ -16,7 +16,7 @@ function WeatherCard({ weatherData }) {
         <h3 className="text-2xl capitalize">{description}</h3>
         <h4 className="text-xl ">
           Feels like{' '}
-          <span className="tracking-tighter underline decoration-pink-500">
+          <span className="tracking-tighter underline decoration-orange-500">
             {feelsLike} °C
           </span>
         </h4>
