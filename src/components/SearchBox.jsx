@@ -27,11 +27,35 @@ function SearchBox({ setWeatherData }) {
           type="text"
           id="city"
           name="city"
+          value={city}
           placeholder="Enter your location..."
           onChange={(event) => {
             setCity(() => event.target.value)
           }}
         />
+
+        {city !== '' && (
+          <button
+            className="flex-shrink-0  text-sm  py-1 px-2 mr-2"
+            type="button"
+            onClick={() => setCity('')}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        )}
         <button
           className="flex-shrink-0 bg-orange-500 hover:bg-orange-700 border-orange-500 hover:border-orange-700 text-sm border-4 text-white py-1 px-2 "
           type="submit"
