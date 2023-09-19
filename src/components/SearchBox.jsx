@@ -21,9 +21,9 @@ function SearchBox({ setWeatherData }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex items-center border border-orange-500 text-lg">
+      <div className="flex items-center border-b-2 text-lg pb-2">
         <input
-          className="border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+          className="border-none w-full text-gray-700 mr-3 py-1 pr-2 leading-tight focus:outline-none"
           type="text"
           id="city"
           name="city"
