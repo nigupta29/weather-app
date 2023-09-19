@@ -8,12 +8,12 @@ function WeatherCard({ weatherData }) {
   const { name, weather, main, wind, sys } = weatherData
   const { temp, feels_like: feelsLike, humidity } = main
   const { speed: windSpeed } = wind
-  const { sunrise, sunset } = sys
+  const { country, sunrise, sunset } = sys
   const { description } = weather[0]
 
   return (
     <main className="flex flex-col border-2 rounded-3xl p-16 items-center gap-10">
-      <h2 className="text-3xl">{name}</h2>
+      <h2 className="text-3xl">{`${name}, ${country}`}</h2>
       <div className="flex flex-col items-center gap-5">
         <h1 className="text-6xl tracking-tighter font-bold">
           {temp} <span className="text-3xl align-top font-normal">°C</span>
