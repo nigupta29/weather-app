@@ -1,16 +1,16 @@
-import { useState } from "react";
-import SearchBox from "./components/SearchBox";
-import WeatherCard from "./components/WeatherCard";
+import { useState } from 'react'
+import SearchBox from './components/SearchBox'
+import WeatherCard from './components/WeatherCard'
 
 function App() {
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({})
 
   return (
-    <div className="mx-auto mt-5 flex max-w-lg flex-col gap-5 px-2 md:mt-10">
+    <section className="mx-auto mt-5 flex max-w-lg flex-col gap-5 px-2 md:mt-10">
       <SearchBox setWeatherData={setWeatherData} />
       <WeatherCard weatherData={weatherData} />
-    </div>
-  );
+    </section>
+  )
 }
 
-export default App;
+export default App

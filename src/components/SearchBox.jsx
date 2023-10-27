@@ -1,21 +1,48 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 
+// Function to update the URL with the city parameter
+function updateURL(city) {
+  const url = new URL(window.location.href)
+  url.searchParams.set('city', city)
+  window.history.pushState({ city }, '', url.toString())
+}
+
+// Function to clear the parameters from the URL
+function clearURL() {
+  const newURL = window.location.origin + window.location.pathname
+  history.replaceState(null, '', newURL)
+}
+
+// Function to read the city parameter from the URL
+function getCityFromURL() {
+  const url = new URL(window.location.href)
+  const cityParam = url.searchParams.get('city')
+  return cityParam || ''
+}
+
 function SearchBox({ setWeatherData }) {
-  const [city, setCity] = useState('')
+  const [city, setCity] = useState(getCityFromURL())
 
   async function handleSubmit(event) {
     event.preventDefault()
 
     if (city === '') return
 
-    const url = new URL('https://api.openweathermap.org/data/2.5/weather')
-    url.searchParams.set('units', 'metric')
-    url.searchParams.set('appId', import.meta.env.VITE_API_KEY)
-    url.searchParams.set('q', city)
-
-    const response = await fetch(url)
-    const data = await response.json()
+    updateURL(city)
+    const openWeatherApiUrl = new URL(
+      'https://api.openweathermap.org/data/2.5/weather'
+    )
+    openWeatherApiUrl.searchParams.set('units', 'metric')
+    openWeatherApiUrl.searchParams.set('appId', import.meta.env.VITE_API_KEY)
+    openWeatherApiUrl.searchParams.set('q', city)
+    let data
+    try {
+      const response = await fetch(openWeatherApiUrl)
+      data = await response.json()
+    } catch (error) {
+      console.log('ereriere')
+    }
 
     if (data.cod !== 200) document.title = 'Error | Weather Today'
     else document.title = `${city} | Weather Today`
@@ -26,6 +53,7 @@ function SearchBox({ setWeatherData }) {
     setCity('')
     setWeatherData({})
     document.title = 'Weather Today'
+    clearURL()
   }
 
   return (
