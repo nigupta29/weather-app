@@ -6,10 +6,10 @@ function App() {
   const [weatherData, setWeatherData] = useState({})
 
   return (
-    <section className="mx-auto mt-5 flex max-w-lg flex-col gap-5 px-2 md:mt-10">
+    <div className="">
       <SearchBox setWeatherData={setWeatherData} />
       <WeatherCard weatherData={weatherData} />
-    </section>
+    </div>
   )
 }
 
