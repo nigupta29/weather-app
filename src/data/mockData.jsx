@@ -1,50 +1,47 @@
 export const cityWeatherDataToday = {
   coord: {
-    lon: -0.1257,
-    lat: 51.5085
+    lon: 80.35,
+    lat: 26.4667
   },
   weather: [
     {
-      id: 500,
-      main: 'Rain',
-      description: 'light rain',
-      icon: '10n'
+      id: 804,
+      main: 'Clouds',
+      description: 'overcast clouds',
+      icon: '04n'
     }
   ],
   base: 'stations',
   main: {
-    temp: 12.92,
-    feels_like: 12.67,
-    temp_min: 12.08,
-    temp_max: 14.04,
-    pressure: 986,
-    humidity: 92
+    temp: 23.14,
+    feels_like: 22.55,
+    temp_min: 23.14,
+    temp_max: 23.14,
+    pressure: 1013,
+    humidity: 40,
+    sea_level: 1013,
+    grnd_level: 997
   },
   visibility: 10000,
   wind: {
-    speed: 3.6,
-    deg: 120
-  },
-  rain: {
-    '1h': 0.23
+    speed: 1.56,
+    deg: 95,
+    gust: 1.63
   },
   clouds: {
-    all: 75
+    all: 100
   },
-  dt: 1698514105,
+  dt: 1698518982,
   sys: {
-    type: 2,
-    id: 2006068,
-    country: 'GB',
-    sunrise: 1698475565,
-    sunset: 1698511340
+    country: 'IN',
+    sunrise: 1698540324,
+    sunset: 1698580747
   },
-  timezone: 3600,
-  id: 2643743,
-  name: 'London',
+  timezone: 19800,
+  id: 1267995,
+  name: 'Kanpur',
   cod: 200
 }
-
 export const cityWeatherDataWeekly = {
   cod: '200',
   message: 0,
