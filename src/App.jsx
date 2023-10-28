@@ -2,7 +2,8 @@ import { useState } from 'react'
 import bgImage from './assets/images/landscape.jpg'
 import SearchBox from './components/SearchBox'
 import WeatherCard from './components/WeatherCard'
-import { cityWeatherDataToday } from './data/mockData'
+import WeeklyList from './components/WeeklyList'
+import { cityWeatherDataToday, cityWeatherDataWeekly } from './data/mockData'
 
 const mainScreenStyles = {
   backgroundImage: `url(${bgImage})`,
@@ -14,11 +15,16 @@ const mainScreenStyles = {
 function App() {
   const [weatherData, setWeatherData] = useState(cityWeatherDataToday)
 
+  const [weeklyWeatherData, setWeeklyWeatherData] = useState(
+    cityWeatherDataWeekly
+  )
+
   return (
     <div className="tracking-tight" style={mainScreenStyles}>
-      <div className="max-w-[1366px] p-5 md:p-10 lg:mx-auto lg:p-20">
+      <div className="max-w-[1366px] space-y-10 p-5 md:p-10 lg:mx-auto lg:p-20">
         <SearchBox setWeatherData={setWeatherData} />
         <WeatherCard weatherData={weatherData} />
+        <WeeklyList weeklyWeatherData={weeklyWeatherData} />
       </div>
     </div>
   )
