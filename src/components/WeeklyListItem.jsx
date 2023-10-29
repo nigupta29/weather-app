@@ -1,27 +1,25 @@
 /* eslint-disable react/prop-types */
 import cloudIcon from '../assets/icons/1530364_rain_storm_shower_weather.png'
-const WeeklyListItem = ({ weather }) => {
-  const timestamp = new Date(weather.timestamp)
+const WeeklyListItem = ({ weeklyWeather }) => {
+  const { weather, temp } = weeklyWeather
+  const timestamp = new Date(weeklyWeather.timestamp * 1000)
 
-  const date = timestamp.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
+  const day = timestamp.toLocaleDateString('en-US', {
     weekday: 'short'
   })
-  const time = timestamp.toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: ''
+  const date = timestamp.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric'
   })
 
   return (
-    <li className="rounded-2xl bg-white/80 p-5 hover:bg-purple-100">
+    <li className="rounded-2xl bg-white/80 p-5 hover:bg-purple-100/80 lg:first:hidden">
       <div className="flex flex-col items-center justify-center">
-        <h3 className="text-primary text-xl">{date}</h3>
-        <h3 className="text-xl">{time}</h3>
-        <img src={cloudIcon} alt={`Rain Icon`} className="w-32" />
-        <h5 className="text-2xl font-semibold">
-          {weather.temp}
+        <h3 className="text-xl font-semibold text-primary">{day}</h3>
+        <h3 className="text-xl ">{date}</h3>
+        <img src={cloudIcon} alt={`${weather.main} Icon`} className="w-32" />
+        <h5 className="text-2xl font-semibold text-primary">
+          {temp}
           <span className="align-top text-base">°C</span>
         </h5>
       </div>

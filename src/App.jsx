@@ -20,7 +20,7 @@ function App() {
   )
 
   return (
-    <div className="tracking-tight" style={mainScreenStyles}>
+    <div className="tracking-tighter" style={mainScreenStyles}>
       <div className="max-w-[1366px] space-y-10 p-5 md:p-10 lg:mx-auto lg:p-20">
         <SearchBox setWeatherData={setWeatherData} />
         <WeatherCard weatherData={weatherData} />
