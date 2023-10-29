@@ -1,47 +1,54 @@
 /* eslint-disable react/prop-types */
-function WeatherCard({ weatherData }) {
-  if (weatherData.cod !== 200)
-    return (
-      <div className="capitalize">
-        {weatherData?.message ??
-          'Never be caught off guard by the weather again.'}
-      </div>
-    )
 
-  const { name, weather, main, wind, sys } = weatherData
-  const { temp, feels_like: feelsLike, humidity } = main
-  const { speed: windSpeed } = wind
-  const { country, sunrise, sunset } = sys
-  const { description } = weather[0]
+import { getWeatherIcon } from '../utils/weatherIcons'
 
+const WeatherCard = ({ weatherData }) => {
+  const { main, weather, wind, name, sys } = weatherData
+  const { temp, feels_like, pressure, humidity } = main
+  const { main: weather_main, description } = weather[0]
+  const { speed } = wind
+  const { country } = sys
   return (
-    <main className="flex flex-col border-2 rounded-3xl p-16 items-center gap-10">
-      <h2 className="text-3xl">{`${name}, ${country}`}</h2>
-      <div className="flex flex-col items-center gap-5">
-        <h1 className="text-6xl tracking-tighter font-bold">
-          {temp} <span className="text-3xl align-top font-normal">°C</span>
-        </h1>
-        <h3 className="text-2xl capitalize">{description}</h3>
-        <h4 className="text-xl ">
-          Feels like{' '}
-          <span className="tracking-tighter underline decoration-orange-500">
-            {feelsLike} °C
-          </span>
-        </h4>
-      </div>
-
-      <div className="flex justify-between gap-10 text-lg">
-        <div className="text-left">
-          <h3>Humidity : {humidity}%</h3>
-          <h3>Wind : {windSpeed} km/h</h3>
+    <section className="rounded-2xl bg-white/80 p-10 lg:p-20">
+      <div className="flex flex-col items-center justify-center gap-10 lg:flex-row lg:justify-around">
+        <div className="flex flex-col items-center justify-center border-b-2 border-primary pb-10 md:flex-row md:gap-8 lg:border-b-0 lg:border-r-2 lg:pb-0 lg:pr-10">
+          <img
+            className="mx-auto -mt-10 w-48 md:mt-auto md:w-64 md:scale-150"
+            src={getWeatherIcon(weather[0])}
+            alt={`${weather_main} Icon`}
+          />
+          <div className="flex flex-col items-center justify-center gap-3 md:items-start ">
+            <h3 className="text-8xl font-bold text-primary lg:text-9xl">
+              {temp.toFixed(0)}
+              <span className="align-top text-3xl">°C</span>
+            </h3>
+            <h5 className="text-4xl font-semibold lg:text-5xl">{`${name}, ${country}`}</h5>
+            <h6 className="text-xl font-semibold capitalize text-gray-700 lg:text-2xl">
+              {description}
+            </h6>
+          </div>
         </div>
 
-        <div className="text-right">
-          <h3>Sunrise : {new Date(sunrise).toLocaleTimeString()}</h3>
-          <h3>Sunset : {new Date(sunset).toLocaleTimeString()}</h3>
+        <div className="w-full lg:w-1/3">
+          <h5 className="mb-10 text-center text-2xl font-semibold text-primary lg:text-3xl">
+            {`Feels like ${feels_like} `}
+            <span className="align-top text-base">°C</span>
+          </h5>
+          <div className="mx-auto flex max-w-md justify-between text-xl lg:text-2xl">
+            <div className="space-y-3 font-semibold">
+              <p>Humidity</p>
+              <p>Pressure</p>
+              <p>Wind</p>
+            </div>
+            <div className="space-y-3 text-end">
+              <p>{`${humidity} %`}</p>
+              <p>{`${pressure} Pa`}</p>
+              <p>{`${speed} km/hr`}</p>
+            </div>
+          </div>
         </div>
       </div>
-    </main>
+    </section>
   )
 }
 
