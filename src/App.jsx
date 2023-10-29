@@ -15,7 +15,6 @@ const mainScreenStyles = {
 
 function App() {
   const [weatherData, setWeatherData] = useState(cityWeatherDataToday)
-
   const [weeklyWeatherData, setWeeklyWeatherData] = useState(
     cityWeatherDataWeekly
   )
