@@ -14,7 +14,11 @@ const mainScreenStyles = {
 }
 
 const API_KEY = import.meta.env.VITE_API_KEY
-const currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&`
+const params = `?appid=${API_KEY}&units=metric&`
+
+const openWeatherAPI = 'https://api.openweathermap.org/data/2.5'
+const currentWeatherURL = `${openWeatherAPI}/weather${params}`
+const weeklyWeatherURL = `${openWeatherAPI}/onecall${params}`
 
 function App() {
   const [searchCity, setSearchCity] = useState('')
@@ -42,33 +46,42 @@ function App() {
 
   const handleClear = () => {
     setSearchCity('')
-    setWeatherData(null)
-    setWeeklyWeatherData(null)
+    // setWeatherData(null)
+    // setWeeklyWeatherData(null)
     clearLoading()
   }
 
-  const getCurrentWeatherDetails = async () => {
+  const fetchDetails = async (fetchUrl, setDataToState) => {
     try {
       setLoading()
-      const res = await fetch(`${currentWeatherURL}q=${searchCity}`)
+      const res = await fetch(fetchUrl)
       const data = await res.json()
       if (res.status >= 400) {
         setErrorMessage(data.message)
-        return
+        return null
       }
-      setWeatherData(data)
+      setDataToState(data)
       clearLoading()
+      return data
     } catch (error) {
       setErrorMessage(error.message)
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-
     if (!searchCity) return
 
-    getCurrentWeatherDetails()
+    const weatherURL = `${currentWeatherURL}q=${searchCity}`
+    const weatherData = await fetchDetails(weatherURL, setWeatherData)
+
+    if (weatherData) {
+      const {
+        coord: { lat, lon }
+      } = weatherData
+      const weeklyURL = `${weeklyWeatherURL}&lat=${lat}&lon=${lon}`
+      await fetchDetails(weeklyURL, setWeeklyWeatherData)
+    }
   }
 
   return (
