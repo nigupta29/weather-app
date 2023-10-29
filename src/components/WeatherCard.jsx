@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import cloudIcon from '../assets/icons/1530364_rain_storm_shower_weather.png'
+import { getWeatherIcon } from '../utils/weatherIcons'
 
 const WeatherCard = ({ weatherData }) => {
   const { main, weather, wind, name, sys } = weatherData
@@ -14,7 +14,7 @@ const WeatherCard = ({ weatherData }) => {
         <div className="lg:pb-auto flex flex-col justify-center border-b-2 border-primary pb-10 md:flex-row lg:border-b-0 lg:border-r-2 lg:pr-10">
           <img
             className="mx-auto -mt-10 w-48 md:mt-auto md:w-64 md:scale-150"
-            src={cloudIcon}
+            src={getWeatherIcon(weather[0])}
             alt={`${weather_main} Icon`}
           />
           <div className="flex flex-col items-center justify-center gap-3 md:items-start ">
