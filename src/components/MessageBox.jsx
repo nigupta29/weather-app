@@ -49,7 +49,7 @@ const MessageBox = ({ message }) => {
   return (
     <div className="mx-auto max-w-fit">
       <p
-        className={`rounded-2xl px-10 py-2 text-lg font-semibold ring-2 ${styles}`}
+        className={`rounded-2xl px-10 py-2 text-lg font-semibold capitalize ring-2 ${styles}`}
       >
         {displayText}
       </p>

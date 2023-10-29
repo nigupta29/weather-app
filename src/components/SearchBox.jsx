@@ -1,19 +1,14 @@
-import { useState } from 'react'
+/* eslint-disable react/prop-types */
 import closeIcon from '../assets/svg/close.svg'
 import githubIcon from '../assets/svg/github.svg'
 import searchIcon from '../assets/svg/search.svg'
 
-const SearchBox = () => {
-  const [searchCity, setSearchCity] = useState('')
-
-  const handleClear = () => {
-    setSearchCity('')
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
-
+const SearchBox = ({
+  searchCity,
+  setSearchCity,
+  handleClear,
+  handleSubmit
+}) => {
   return (
     <form onSubmit={handleSubmit} className="rounded-2xl bg-white/70 px-5 py-3">
       <div className="flex flex-nowrap items-center gap-3 md:gap-5">
