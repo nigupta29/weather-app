@@ -46,8 +46,8 @@ function App() {
 
   const handleClear = () => {
     setSearchCity('')
-    // setWeatherData(null)
-    // setWeeklyWeatherData(null)
+    setWeatherData(null)
+    setWeeklyWeatherData(null)
     clearLoading()
   }
 
@@ -85,8 +85,11 @@ function App() {
   }
 
   return (
-    <div className="space-y-10 tracking-tighter" style={mainScreenStyles}>
-      <div className="max-w-[1366px] space-y-10 px-5 py-5 md:p-10 lg:mx-auto lg:px-20 lg:py-10">
+    <div
+      className="flex min-h-screen flex-col space-y-10 tracking-tighter"
+      style={mainScreenStyles}
+    >
+      <div className="mx-auto w-full max-w-[1366px] flex-grow space-y-10 px-5 py-5 md:p-10 lg:px-20 lg:py-10">
         <MessageBox message={message} />
         <SearchBox
           searchCity={searchCity}

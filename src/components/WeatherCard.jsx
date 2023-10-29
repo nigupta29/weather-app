@@ -11,7 +11,7 @@ const WeatherCard = ({ weatherData }) => {
   return (
     <section className="rounded-2xl bg-white/80 p-10 lg:p-20">
       <div className="flex flex-col items-center justify-center gap-10 lg:flex-row lg:justify-around">
-        <div className="lg:pb-auto flex flex-col justify-center border-b-2 border-primary pb-10 md:flex-row lg:border-b-0 lg:border-r-2 lg:pr-10">
+        <div className="flex flex-col items-center justify-center border-b-2 border-primary pb-10 md:flex-row md:gap-8 lg:border-b-0 lg:border-r-2 lg:pb-0 lg:pr-10">
           <img
             className="mx-auto -mt-10 w-48 md:mt-auto md:w-64 md:scale-150"
             src={getWeatherIcon(weather[0])}

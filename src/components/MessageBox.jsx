@@ -47,9 +47,9 @@ const MessageBox = ({ message }) => {
 
   const styles = `${textColor} ${bgColor} ${borderColor} ${additionalStyle}`
   return (
-    <div className="mx-auto max-w-fit">
+    <div className="mx-auto w-full md:max-w-fit">
       <p
-        className={`rounded-2xl px-10 py-2 text-lg font-semibold capitalize ring-2 ${styles}`}
+        className={`rounded-2xl px-10 py-2 text-lg font-semibold capitalize ring-2 ${styles} text-center`}
       >
         {displayText}
       </p>
