@@ -12,6 +12,22 @@ import thunderstormIcon from '../assets/icons/thunderstorm.png'
 export const getWeatherIcon = (weather) => {
   const { main, description } = weather
 
+  const atmosphere = new Set([
+    'Mist',
+    'Smoke',
+    'Haze',
+    'Dust',
+    'Fog',
+    'Sand',
+    'Dust',
+    'Ash',
+    'Squall',
+    'Tornado'
+  ])
+
+  if (atmosphere.has(main))
+    return description.includes('dust') ? dustIcon : atmosphereIcon
+
   switch (main) {
     case 'Thunderstorm':
       return thunderstormIcon
@@ -24,9 +40,6 @@ export const getWeatherIcon = (weather) => {
 
     case 'Snow':
       return snowIcon
-
-    case 'Atmosphere':
-      return description.includes('dust') ? dustIcon : atmosphereIcon
 
     case 'Clouds':
       return description.includes('few') || description.includes('scattered')
