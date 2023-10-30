@@ -36,7 +36,7 @@ const MessageBox = ({ message }) => {
     bgColor = 'bg-white/70'
     borderColor = 'ring-primary'
 
-    const date = new Date('2023-10-29')
+    const date = new Date()
     const day = date.getDate()
     const month = date.toLocaleString('default', { month: 'long' })
     const year = date.getFullYear()
