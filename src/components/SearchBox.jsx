@@ -1,7 +1,4 @@
 /* eslint-disable react/prop-types */
-import closeIcon from '../assets/svg/close.svg'
-import githubIcon from '../assets/svg/github.svg'
-import searchIcon from '../assets/svg/search.svg'
 
 const SearchBox = ({
   searchCity,
@@ -20,7 +17,7 @@ const SearchBox = ({
         >
           <img
             className="w-10 rounded-lg p-1 hover:bg-primary/10"
-            src={githubIcon}
+            src="/images/svg/github.svg"
             alt="Github Repo Link"
           />
         </a>
@@ -37,7 +34,7 @@ const SearchBox = ({
           <button type="button" onClick={handleClear}>
             <img
               className="w-10 rounded-lg p-1 hover:bg-primary/10"
-              src={closeIcon}
+              src="/images/svg/close.svg"
               alt="Clear Search Field"
             />
           </button>
@@ -45,7 +42,7 @@ const SearchBox = ({
         <button type="submit">
           <img
             className="w-10 rounded-lg p-1 hover:bg-primary/10"
-            src={searchIcon}
+            src="/images/svg/search.svg"
             alt="Search for city"
           />
         </button>

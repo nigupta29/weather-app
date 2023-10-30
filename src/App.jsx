@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import bgImage from './assets/images/landscape.jpg'
 import Footer from './components/Footer'
 import MessageBox from './components/MessageBox'
 import SearchBox from './components/SearchBox'
@@ -7,7 +6,7 @@ import WeatherCard from './components/WeatherCard'
 import WeeklyList from './components/WeeklyList'
 
 const mainScreenStyles = {
-  backgroundImage: `url(${bgImage})`,
+  backgroundImage: `url('/images/landscape.jpg')`,
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center center'

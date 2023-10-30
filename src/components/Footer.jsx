@@ -1,7 +1,3 @@
-import figmaIcon from '../assets/svg/figma.svg'
-import reactIcon from '../assets/svg/react.svg'
-import tailwindIcon from '../assets/svg/tailwind.svg'
-
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center justify-center gap-3 bg-white/70 p-10 lg:gap-5">
@@ -35,9 +31,21 @@ const Footer = () => {
         </p>
       </hgroup>
       <div className="flex gap-10">
-        <img className="w-6 md:w-8" src={reactIcon} alt="React Icon" />
-        <img className="w-6 md:w-8" src={tailwindIcon} alt="React Icon" />
-        <img className="w-6 md:w-8" src={figmaIcon} alt="React Icon" />
+        <img
+          className="w-6 md:w-8"
+          src={'/images/svg/react.svg'}
+          alt="React Icon"
+        />
+        <img
+          className="w-6 md:w-8"
+          src={'/images/svg/tailwind.svg'}
+          alt="Tailwind Icon"
+        />
+        <img
+          className="w-6 md:w-8"
+          src={'/images/svg/figma.svg'}
+          alt="Figma Icon"
+        />
       </div>
     </footer>
   )

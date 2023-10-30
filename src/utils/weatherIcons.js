@@ -1,13 +1,13 @@
-import atmosphereIcon from '../assets/icons/atmosphere.png'
-import clearIcon from '../assets/icons/clear.png'
-import cloudsIcon from '../assets/icons/clouds.png'
-import drizzleIcon from '../assets/icons/drizzle.png'
-import dustIcon from '../assets/icons/dust.png'
-import fewCloudsIcon from '../assets/icons/few clouds.png'
-import heavyRainIcon from '../assets/icons/heavy rain.png'
-import rainIcon from '../assets/icons/rain.png'
-import snowIcon from '../assets/icons/snow.png'
-import thunderstormIcon from '../assets/icons/thunderstorm.png'
+const atmosphereIcon = '../images/icons/atmosphere.png'
+const clearIcon = '/images/icons/clear.png'
+const cloudsIcon = '../images/icons/clouds.png'
+const drizzleIcon = '../images/icons/drizzle.png'
+const dustIcon = '../images/icons/dust.png'
+const fewCloudsIcon = '../images/icons/few clouds.png'
+const heavyRainIcon = '../images/icons/heavy rain.png'
+const rainIcon = '../images/icons/rain.png'
+const snowIcon = '../images/icons/snow.png'
+const thunderstormIcon = '../images/icons/thunderstorm.png'
 
 export const getWeatherIcon = (weather) => {
   const { main, description } = weather
