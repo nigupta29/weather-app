@@ -17,7 +17,7 @@ const WeatherCard = ({ weatherData }) => {
             src={getWeatherIcon(weather[0])}
             alt={`${weather_main} Icon`}
           />
-          <div className="flex flex-col items-center justify-center gap-3 md:items-start ">
+          <div className="flex flex-col items-center justify-center gap-3 text-center md:items-start ">
             <h3 className="text-8xl font-bold text-primary lg:text-9xl">
               {temp.toFixed(0)}
               <span className="align-top text-3xl">°C</span>
