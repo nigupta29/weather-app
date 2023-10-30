@@ -5,13 +5,6 @@ import SearchBox from './components/SearchBox'
 import WeatherCard from './components/WeatherCard'
 import WeeklyList from './components/WeeklyList'
 
-const mainScreenStyles = {
-  backgroundImage: `url('/images/landscape.jpg')`,
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center center'
-}
-
 const API_KEY = import.meta.env.VITE_API_KEY
 const params = `?appid=${API_KEY}&units=metric&`
 
@@ -84,10 +77,7 @@ function App() {
   }
 
   return (
-    <div
-      className="flex min-h-screen flex-col space-y-10 tracking-tighter"
-      style={mainScreenStyles}
-    >
+    <div className="flex min-h-screen flex-col space-y-10 bg-[url('/images/landscape.jpg')] bg-cover bg-center bg-no-repeat tracking-tighter">
       <div className="mx-auto w-full max-w-[1366px] flex-grow space-y-10 px-5 py-5 md:p-10 lg:px-20 lg:py-10">
         <MessageBox message={message} />
         <SearchBox
