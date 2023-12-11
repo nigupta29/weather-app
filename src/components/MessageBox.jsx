@@ -33,7 +33,7 @@ const MessageBox = ({ message }) => {
     additionalStyle = 'animate-pulse'
   } else {
     textColor = 'text-primary'
-    bgColor = 'bg-white/70'
+    bgColor = 'bg-white/50'
     borderColor = 'ring-primary'
 
     const date = new Date()

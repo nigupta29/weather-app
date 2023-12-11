@@ -77,7 +77,7 @@ function App() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col space-y-10 bg-[url('/images/landscape.jpg')] bg-cover bg-center bg-no-repeat tracking-tighter">
+    <div className="flex min-h-screen flex-col space-y-10 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 tracking-tighter">
       <div className="mx-auto w-full max-w-[1366px] flex-grow space-y-10 px-5 py-5 md:p-10 lg:px-20 lg:py-10">
         <MessageBox message={message} />
         <SearchBox

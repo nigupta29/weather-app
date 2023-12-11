@@ -7,7 +7,7 @@ const SearchBox = ({
   handleSubmit
 }) => {
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl bg-white/70 px-5 py-3">
+    <form onSubmit={handleSubmit} className="rounded-2xl bg-white/50 px-5 py-3">
       <div className="flex flex-nowrap items-center gap-3 md:gap-5">
         <a
           href="https://github.com/nigupta29/weather-app"
@@ -26,7 +26,7 @@ const SearchBox = ({
           name="city"
           id="city"
           placeholder="Search for any location..."
-          className="w-2/4 flex-grow rounded-2xl border-0 bg-inherit px-3 py-2  text-lg outline-none ring-primary focus:ring-2 md:text-xl"
+          className="w-2/4 flex-grow rounded-2xl border-0 bg-inherit px-3 py-2 text-lg placeholder:text-gray-600 outline-none ring-primary focus:ring-2 md:text-xl"
           value={searchCity}
           onChange={(e) => setSearchCity(e.target.value)}
         />

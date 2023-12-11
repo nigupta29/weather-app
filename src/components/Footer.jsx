@@ -1,10 +1,11 @@
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-center justify-center gap-3 bg-white/70 p-10 lg:gap-5">
+    <footer className="flex flex-col items-center justify-center gap-3 bg-white/50 p-10 lg:gap-5">
       <h5 className="font-semibold lg:text-lg">
         Created by
         <a
           href="https://github.com/nigupta29"
+          target="__blank__"
           className="ml-1 underline decoration-primary"
         >
           Nikhil Gupta
@@ -15,6 +16,7 @@ const Footer = () => {
           Icons by
           <a
             href="https://www.iconfinder.com/Neolau1119"
+            target="__blank__"
             className="ml-1 underline decoration-primary"
           >
             Sihan Liu
@@ -24,6 +26,7 @@ const Footer = () => {
           Data via
           <a
             href="https://openweathermap.org/api"
+            target="__blank__"
             className="ml-1 underline decoration-primary"
           >
             Open Weather API
