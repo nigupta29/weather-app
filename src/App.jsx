@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Footer from './components/Footer'
 import MessageBox from './components/MessageBox'
 import SearchBox from './components/SearchBox'
@@ -76,8 +76,19 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search)
+    const initialCity = searchParams.get('city')
+
+    if (initialCity) {
+      setSearchCity(initialCity)
+      const searchButton = document.getElementById('search-btn')
+      searchButton.click()
+    }
+  }, [])
+
   return (
-    <div className="flex min-h-screen flex-col space-y-10 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 tracking-tighter">
+    <div className="flex min-h-screen flex-col space-y-10 bg-gradient-to-r from-rose-400 via-amber-400 to-yellow-400 tracking-tighter">
       <div className="mx-auto w-full max-w-[1366px] flex-grow space-y-10 px-5 py-5 md:p-10 lg:px-20 lg:py-10">
         <MessageBox message={message} />
         <SearchBox

@@ -26,7 +26,7 @@ const SearchBox = ({
           name="city"
           id="city"
           placeholder="Search for any location..."
-          className="w-2/4 flex-grow rounded-2xl border-0 bg-inherit px-3 py-2 text-lg placeholder:text-gray-600 outline-none ring-primary focus:ring-2 md:text-xl"
+          className="w-2/4 flex-grow rounded-2xl border-0 bg-inherit px-3 py-2 text-lg outline-none ring-primary placeholder:text-gray-600 focus:ring-2 md:text-xl"
           value={searchCity}
           onChange={(e) => setSearchCity(e.target.value)}
         />
@@ -39,7 +39,7 @@ const SearchBox = ({
             />
           </button>
         )}
-        <button type="submit">
+        <button type="submit" id="search-btn">
           <img
             className="w-10 rounded-lg p-1 hover:bg-primary/10"
             src="/images/svg/search.svg"
