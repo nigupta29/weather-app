@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Footer from './components/Footer'
 import MessageBox from './components/MessageBox'
 import SearchBox from './components/SearchBox'
@@ -75,17 +75,6 @@ function App() {
       await fetchDetails(weeklyURL, setWeeklyWeatherData)
     }
   }
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search)
-    const initialCity = searchParams.get('city')
-
-    if (initialCity) {
-      setSearchCity(initialCity)
-      const searchButton = document.getElementById('search-btn')
-      searchButton.click()
-    }
-  }, [])
 
   return (
     <div className="flex min-h-screen flex-col space-y-10 bg-gradient-to-r from-rose-400 via-amber-400 to-yellow-400">
