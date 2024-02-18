@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import { RiCloseLine, RiGithubLine, RiSearch2Line } from '@remixicon/react'
+
 const SearchBox = ({
   searchCity,
   setSearchCity,
@@ -8,18 +10,14 @@ const SearchBox = ({
 }) => {
   return (
     <form onSubmit={handleSubmit} className="rounded-2xl bg-white/50 px-5 py-3">
-      <div className="flex flex-nowrap items-center gap-3 md:gap-5">
+      <div className="flex flex-nowrap items-center gap-1 md:gap-2">
         <a
           href="https://github.com/nigupta29/weather-app"
           target="_blank"
           rel="noreferrer noopener"
-          className="hidden md:block"
+          className="rounded-xl p-1 hover:bg-white"
         >
-          <img
-            className="w-10 rounded-lg p-1 hover:bg-primary/10"
-            src="/images/svg/github.svg"
-            alt="Github Repo Link"
-          />
+          <RiGithubLine />
         </a>
         <input
           type="text"
@@ -31,20 +29,20 @@ const SearchBox = ({
           onChange={(e) => setSearchCity(e.target.value)}
         />
         {searchCity && (
-          <button type="button" onClick={handleClear}>
-            <img
-              className="w-10 rounded-lg p-1 hover:bg-primary/10"
-              src="/images/svg/close.svg"
-              alt="Clear Search Field"
-            />
+          <button
+            className="rounded-xl p-1 hover:bg-white"
+            type="button"
+            onClick={handleClear}
+          >
+            <RiCloseLine />
           </button>
         )}
-        <button type="submit" id="search-btn">
-          <img
-            className="w-10 rounded-lg p-1 hover:bg-primary/10"
-            src="/images/svg/search.svg"
-            alt="Search for city"
-          />
+        <button
+          className="rounded-xl p-1 hover:bg-white"
+          type="submit"
+          id="search-btn"
+        >
+          <RiSearch2Line />
         </button>
       </div>
     </form>
