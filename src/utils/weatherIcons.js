@@ -1,52 +1,60 @@
-const atmosphereIcon = '../images/icons/atmosphere.png'
-const clearIcon = '/images/icons/clear.png'
-const cloudsIcon = '../images/icons/clouds.png'
-const drizzleIcon = '../images/icons/drizzle.png'
-const dustIcon = '../images/icons/dust.png'
-const fewCloudsIcon = '../images/icons/few clouds.png'
-const heavyRainIcon = '../images/icons/heavy rain.png'
-const rainIcon = '../images/icons/rain.png'
-const snowIcon = '../images/icons/snow.png'
-const thunderstormIcon = '../images/icons/thunderstorm.png'
+import {
+  RiCloudLine,
+  RiCloudy2Line,
+  RiCloudyLine,
+  RiDrizzleLine,
+  RiFoggyLine,
+  RiHazeLine,
+  RiHeavyShowersLine,
+  RiMistLine,
+  RiRainyLine,
+  RiSnowyLine,
+  RiSunLine,
+  RiThunderstormsLine,
+  RiTornadoLine
+} from '@remixicon/react'
 
 export const getWeatherIcon = (weather) => {
   const { main, description } = weather
 
-  const atmosphere = new Set([
-    'Mist',
-    'Smoke',
-    'Haze',
-    'Dust',
-    'Fog',
-    'Sand',
-    'Dust',
-    'Ash',
-    'Squall',
-    'Tornado'
-  ])
-
-  if (atmosphere.has(main))
-    return description.includes('dust') ? dustIcon : atmosphereIcon
-
   switch (main) {
+    case 'Mist':
+      return RiMistLine
+
+    case 'Haze':
+      return RiHazeLine
+
+    case 'Fog':
+      return RiFoggyLine
+
+    case 'Tornado':
+      return RiTornadoLine
+
+    case 'Smoke':
+    case 'Dust':
+    case 'Sand':
+    case 'Ash':
+    case 'Squall':
+      return RiCloudyLine
+
     case 'Thunderstorm':
-      return thunderstormIcon
+      return RiThunderstormsLine
 
     case 'Drizzle':
-      return drizzleIcon
+      return RiDrizzleLine
 
     case 'Rain':
-      return description.includes('heavy') ? heavyRainIcon : rainIcon
+      return description.includes('heavy') ? RiHeavyShowersLine : RiRainyLine
 
     case 'Snow':
-      return snowIcon
+      return RiSnowyLine
 
     case 'Clouds':
       return description.includes('few') || description.includes('scattered')
-        ? fewCloudsIcon
-        : cloudsIcon
+        ? RiCloudLine
+        : RiCloudy2Line
 
     default:
-      return clearIcon
+      return RiSunLine
   }
 }

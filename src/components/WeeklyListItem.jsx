@@ -5,6 +5,8 @@ const WeeklyListItem = ({ weeklyWeather }) => {
   const { weather, temp } = weeklyWeather
   const timestamp = new Date(weeklyWeather.timestamp * 1000)
 
+  const Icon = getWeatherIcon(weather)
+
   const day = timestamp.toLocaleDateString('en-US', {
     weekday: 'short'
   })
@@ -18,12 +20,8 @@ const WeeklyListItem = ({ weeklyWeather }) => {
       <div className="flex flex-col items-center justify-center">
         <h3 className="text-xl font-bold text-primary">{day}</h3>
         <h3 className="text-xl ">{date}</h3>
-        <img
-          src={getWeatherIcon(weather)}
-          alt={`${weather.main} Icon`}
-          className="w-32"
-        />
-        <h5 className="text-2xl font-semibold text-primary">
+        <Icon size={80} className="my-3 text-primary/90" />
+        <h5 className="text-2xl font-semibold">
           {temp}
           <RiCelsiusFill size={15} className="inline-flex align-top" />
         </h5>

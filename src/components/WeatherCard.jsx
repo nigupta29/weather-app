@@ -6,18 +6,15 @@ import { getWeatherIcon } from '../utils/weatherIcons'
 const WeatherCard = ({ weatherData }) => {
   const { main, weather, wind, name, sys } = weatherData
   const { temp, feels_like, pressure, humidity } = main
-  const { main: weather_main, description } = weather[0]
+  const { description } = weather[0]
+  const Icon = getWeatherIcon(weather[0])
   const { speed } = wind
   const { country } = sys
   return (
     <section className="rounded-2xl bg-white/80 p-10 lg:p-20">
       <div className="flex flex-col items-center justify-center gap-10 lg:flex-row lg:justify-around">
-        <div className="flex flex-col items-center justify-center border-b-2 border-primary pb-10 md:flex-row md:gap-8 lg:border-b-0 lg:border-r-2 lg:pb-0 lg:pr-10">
-          <img
-            className="mx-auto -mt-10 w-48 md:mt-auto md:w-64 md:scale-150"
-            src={getWeatherIcon(weather[0])}
-            alt={`${weather_main} Icon`}
-          />
+        <div className="flex flex-col items-center justify-center gap-8 border-b-2 border-primary pb-10 md:flex-row lg:border-b-0 lg:border-r-2 lg:pb-0 lg:pr-10">
+          <Icon size={150} />
           <div className="flex flex-col items-center justify-center gap-3 text-center md:items-start md:text-start">
             <h3 className="text-8xl font-bold text-primary lg:text-9xl">
               {temp.toFixed(0)}
