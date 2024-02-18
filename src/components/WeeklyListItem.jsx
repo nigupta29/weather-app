@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { RiCelsiusFill } from '@remixicon/react'
 import { getWeatherIcon } from '../utils/weatherIcons'
 const WeeklyListItem = ({ weeklyWeather }) => {
   const { weather, temp } = weeklyWeather
@@ -24,7 +25,7 @@ const WeeklyListItem = ({ weeklyWeather }) => {
         />
         <h5 className="text-2xl font-semibold text-primary">
           {temp}
-          <span className="align-top text-base">°C</span>
+          <RiCelsiusFill size={15} className="inline-flex align-top" />
         </h5>
       </div>
     </li>

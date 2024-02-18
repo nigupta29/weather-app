@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import { RiCelsiusFill } from '@remixicon/react'
 import { getWeatherIcon } from '../utils/weatherIcons'
 
 const WeatherCard = ({ weatherData }) => {
@@ -20,7 +21,7 @@ const WeatherCard = ({ weatherData }) => {
           <div className="flex flex-col items-center justify-center gap-3 text-center md:items-start md:text-start">
             <h3 className="text-8xl font-bold text-primary lg:text-9xl">
               {temp.toFixed(0)}
-              <span className="align-top text-3xl">°C</span>
+              <RiCelsiusFill size={50} className="inline-flex align-top" />
             </h3>
             <h5 className="text-4xl font-semibold lg:text-5xl">{`${name}, ${country}`}</h5>
             <h6 className="text-xl font-semibold capitalize text-gray-700 lg:text-2xl">
@@ -32,7 +33,7 @@ const WeatherCard = ({ weatherData }) => {
         <div className="w-full lg:w-1/3">
           <h5 className="mb-10 text-center text-2xl font-semibold text-primary lg:text-3xl">
             {`Feels like ${feels_like} `}
-            <span className="align-top text-base">°C</span>
+            <RiCelsiusFill className="inline-flex align-top" />
           </h5>
           <div className="mx-auto flex max-w-md justify-between text-xl lg:text-2xl">
             <div className="space-y-3 font-semibold">
